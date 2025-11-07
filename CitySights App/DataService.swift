@@ -31,7 +31,7 @@ struct DataService {
                 if let http = response as? HTTPURLResponse {
                     print("Status code:", http.statusCode)
                 }
-
+                // Testing to see a response from API
                 if let body = String(data: data, encoding: .utf8) {
                     print("Response body:", body)
                 }
@@ -54,6 +54,6 @@ struct DataService {
             }
             
         }
-        return []
+        return [Business]()
     }
 }
