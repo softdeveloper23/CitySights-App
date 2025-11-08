@@ -44,7 +44,8 @@ struct MainView: View {
                                     .foregroundColor(Color(red: 67/255, green: 71/255, blue: 76/255))
                             }
                             Spacer()
-                            Image("regular_\(b.rating ?? 0)")
+                            let ratingString = String(format: "%.1f", (b.rating ?? 0).roundedToHalf())
+                            Image("regular_\(ratingString)")
                         }
                         Divider()
                     }
@@ -62,3 +63,4 @@ struct MainView: View {
 #Preview {
     MainView()
 }
+
