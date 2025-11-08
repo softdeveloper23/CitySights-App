@@ -39,7 +39,7 @@ struct MainView: View {
                                 Text(b.name ?? "Restaurant")
                                     .font(Font.system(size: 15))
                                     .bold()
-                                Text("\(Int(round(b.distance ?? 0))) meters away")
+                                Text(TextHelper.distanceAwayText(meters: b.distance ?? 0))
                                     .font(Font.system(size: 16))
                                     .foregroundColor(Color(red: 67/255, green: 71/255, blue: 76/255))
                             }
