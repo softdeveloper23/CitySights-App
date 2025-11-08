@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		698EBED62EBE3B6B009D520E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EBED42EBE3B6B009D520E /* DataService.swift */; };
 		698EBED72EBE3B6B009D520E /* CitySights_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EBED12EBE3B6B009D520E /* CitySights_AppApp.swift */; };
-		698EBED82EBE3B6B009D520E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EBED32EBE3B6B009D520E /* ContentView.swift */; };
+		698EBED82EBE3B6B009D520E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EBED32EBE3B6B009D520E /* MainView.swift */; };
 		698EBED92EBE3B6B009D520E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698EBED02EBE3B6B009D520E /* Assets.xcassets */; };
 		698EBEDA2EBE3B6B009D520E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 698EBED22EBE3B6B009D520E /* Config.xcconfig */; };
 		698EBEDD2EBE3C11009D520E /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EBEDC2EBE3C0C009D520E /* BusinessSearch.swift */; };
@@ -20,7 +20,7 @@
 		698EBED02EBE3B6B009D520E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		698EBED12EBE3B6B009D520E /* CitySights_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySights_AppApp.swift; sourceTree = "<group>"; };
 		698EBED22EBE3B6B009D520E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		698EBED32EBE3B6B009D520E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		698EBED32EBE3B6B009D520E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		698EBED42EBE3B6B009D520E /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		698EBEDC2EBE3C0C009D520E /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		698EBEE02EBE4793009D520E /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 				698EBED02EBE3B6B009D520E /* Assets.xcassets */,
 				698EBED12EBE3B6B009D520E /* CitySights_AppApp.swift */,
 				698EBED22EBE3B6B009D520E /* Config.xcconfig */,
-				698EBED32EBE3B6B009D520E /* ContentView.swift */,
+				698EBED32EBE3B6B009D520E /* MainView.swift */,
 				698EBED42EBE3B6B009D520E /* DataService.swift */,
 			);
 			path = "CitySights App";
@@ -153,7 +153,7 @@
 				698EBEDD2EBE3C11009D520E /* BusinessSearch.swift in Sources */,
 				698EBED72EBE3B6B009D520E /* CitySights_AppApp.swift in Sources */,
 				698EBEE12EBE479A009D520E /* Business.swift in Sources */,
-				698EBED82EBE3B6B009D520E /* ContentView.swift in Sources */,
+				698EBED82EBE3B6B009D520E /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
