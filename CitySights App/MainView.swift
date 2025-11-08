@@ -29,11 +29,30 @@ struct MainView: View {
                         .cornerRadius(10)
                 }
             }
-            List(businesses) { b in
-                Text(b.name ?? "Nil")
+            List {
+                ForEach(businesses) { b in
+                    VStack(spacing: 30) {
+                        HStack(spacing: 0) {
+                            Image(.listPlaceholder)
+                                .padding(.trailing, 16)
+                            VStack(alignment: .leading) {
+                                Text(b.name ?? "Restaurant")
+                                    .font(Font.system(size: 15))
+                                    .bold()
+                                Text("\(Int(round(b.distance ?? 0))) meters away")
+                                    .font(Font.system(size: 16))
+                                    .foregroundColor(Color(red: 67/255, green: 71/255, blue: 76/255))
+                            }
+                            Spacer()
+                            Image("regular_\(b.rating ?? 0)")
+                        }
+                        Divider()
+                    }
+                }
+                .listRowSeparator(.hidden)
             }
+            .listStyle(.plain)
         }
-        .padding()
         .task {
             businesses = await service.businessSearch()
         }
