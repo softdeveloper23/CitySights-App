@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CitySights_AppApp: App {
+    @State var bModel = BusinessModel()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environment(bModel)
         }
     }
 }

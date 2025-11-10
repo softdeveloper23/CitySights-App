@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var businesses = [Business]()
-    @State var query: String = ""
-    @State var selectedBusiness: Business?
-    var service = DataService()
+    @Environment(BusinessModel.self) var model
     
     var body: some View {
+        @Bindable var bindingModel = model
         VStack {
             HStack {
-                TextField("What are you looking for?", text: $query)
+                TextField("What are you looking for?", text: $bindingModel.query)
                     .textFieldStyle(.roundedBorder)
                 Button {
                     // TODO: Implement query
@@ -30,7 +28,7 @@ struct MainView: View {
                 }
             }
             List {
-                ForEach(businesses) { b in
+                ForEach(bindingModel.businesses) { b in
                     VStack(spacing: 30) {
                         HStack(spacing: 0) {
                             Image(.listPlaceholder)
@@ -50,23 +48,23 @@ struct MainView: View {
                         Divider()
                     }
                     .onTapGesture {
-                        selectedBusiness = b
+                        bindingModel.selectedBusiness = b
                     }
                 }
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
         }
-        .task {
-            businesses = await service.businessSearch()
+        .onAppear{
+            bindingModel.getBusinesses()
         }
-        .sheet(item: $selectedBusiness) { item in
-            BusinessDetailView(business: item)
+        .sheet(item: $bindingModel.selectedBusiness) { item in
+            BusinessDetailView()
         }
     }
 }
 
 #Preview {
     MainView()
+        .environment(BusinessModel())  // ✅ FIXED: Provide BusinessModel to preview!
 }
-
