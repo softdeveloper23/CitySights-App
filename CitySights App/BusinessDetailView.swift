@@ -49,6 +49,19 @@ struct BusinessDetailView: View {
                     Image("regular_\(ratingString)")
                         .padding(.bottom, 16)
                     Divider()
+                    
+                    HStack {
+                        Text("""
+                            ABC Company is dedicated to providing high-quality products and outstanding customer service to every client. Our team takes pride in delivering reliable solutions that meet a wide range of customer needs. With a focus on professionalism and integrity, we strive to create a positive experience for everyone we serve.
+                            
+                            At ABC Company, we believe in building lasting relationships through trust, transparency, and exceptional service. Our goal is to exceed expectations by offering dependable solutions and personalized attention. Whether you’re a new or returning customer, we’re committed to ensuring your satisfaction every step of the way.
+                            """)
+                        .multilineTextAlignment(.leading)
+                    }
+                    .padding(.vertical, 12)
+                    
+                    Divider()
+                    
                     HStack {
                         Image(systemName: "phone")
                         Text(business?.phone ?? "")
