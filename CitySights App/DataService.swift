@@ -43,7 +43,7 @@ struct DataService {
                 print("Decoding error:", error)
             }
             
-            // Send Request
+            // Send Actual Request
             do {
                 let (data, _) = try await URLSession.shared.data(for: request)
                 let decoder = JSONDecoder()
