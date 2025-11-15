@@ -8,7 +8,7 @@
 import Foundation
 
 struct DataService {
-    let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
+    //let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
     
     func businessSearch() async -> [Business]{
         // Check if api key exists
