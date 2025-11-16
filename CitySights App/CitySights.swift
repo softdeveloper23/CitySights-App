@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CitySights: App {
     @State var bModel = BusinessModel()
-    @State var needsOnboarding = true
+    @AppStorage("onboarding") var needsOnboarding = true
     
     var body: some Scene {
         WindowGroup {
