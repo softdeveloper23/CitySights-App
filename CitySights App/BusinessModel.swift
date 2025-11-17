@@ -25,7 +25,7 @@ import CoreLocation
     
     func getBusinesses() {
         Task {
-            businesses = await service.businessSearch()
+            businesses = await service.businessSearch(userLocation: currentUserLocation)
         }
     }
     
