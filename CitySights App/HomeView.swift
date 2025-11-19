@@ -82,9 +82,6 @@ struct HomeView: View {
                     }
             }
         }
-        .onAppear{
-            bindingModel.getBusinesses(query: nil, options: nil, category: nil)
-        }
         .sheet(item: $bindingModel.selectedBusiness) { item in
             BusinessDetailView()
         }
