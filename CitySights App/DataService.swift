@@ -24,8 +24,6 @@ struct DataService {
         if let userLocation = userLocation {
             lat = userLocation.latitude
             long = userLocation.longitude
-            print(lat)
-            print(long)
         }
         
         // Create URL

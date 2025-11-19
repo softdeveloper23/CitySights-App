@@ -10,6 +10,9 @@ import SwiftUI
 struct HomeView: View {
     @Environment(BusinessModel.self) var model
     @State var selectedTab = 0
+    @State var popularOn = false
+    @State var dealsOn = false
+    @State var categorySelection = "restaurants"
     
     var body: some View {
         @Bindable var bindingModel = model
@@ -22,12 +25,32 @@ struct HomeView: View {
                 } label: {
                     Text("GO")
                         .padding(.horizontal)
-                        .padding(.vertical, 10)
+                        .frame(height: 32)
                         .background(.blue)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(6)
                 }
             }
+            .padding(.horizontal)
+            
+            // Query options
+            VStack {
+                Toggle("Popular", isOn: $popularOn)
+                Toggle("Deals", isOn: $dealsOn)
+                
+                HStack {
+                    Text("Category")
+                    Spacer()
+                    Picker("Category", selection: $categorySelection) {
+                        Text("Restaurants")
+                            .tag("restaurants")
+                        Text("Arts")
+                            .tag("arts")
+                    }
+                }
+            }
+            .padding(.horizontal, 40)
+            
             // Show Picker
             Picker("", selection: $selectedTab) {
                 Text("List")
@@ -36,6 +59,7 @@ struct HomeView: View {
                     .tag(1)
             }
             .pickerStyle(SegmentedPickerStyle())
+            .padding(.horizontal)
             
             // Show map or list
             if selectedTab == 1 {
