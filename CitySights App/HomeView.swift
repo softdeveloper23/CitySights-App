@@ -14,6 +14,7 @@ struct HomeView: View {
     @State var popularOn = false
     @State var dealsOn = false
     @State var categorySelection = "restaurants"
+    @FocusState var queryBoxFocused: Bool
     
     var body: some View {
         @Bindable var bindingModel = model
@@ -21,7 +22,9 @@ struct HomeView: View {
             HStack {
                 TextField("What are you looking for?", text: $query)
                     .textFieldStyle(.roundedBorder)
+                    .focused($queryBoxFocused)
                 Button {
+                    queryBoxFocused = false
                     // Perform a search
                     model.getBusinesses(query: query, options: getOptionsString(), category: categorySelection)
                 } label: {
@@ -35,23 +38,25 @@ struct HomeView: View {
             }
             .padding(.horizontal)
             
-            // Query options
-            VStack {
-                Toggle("Popular", isOn: $popularOn)
-                Toggle("Deals", isOn: $dealsOn)
-                
-                HStack {
-                    Text("Category")
-                    Spacer()
-                    Picker("Category", selection: $categorySelection) {
-                        Text("Restaurants")
-                            .tag("restaurants")
-                        Text("Arts")
-                            .tag("arts")
+            // Query options. Show if textbox is focused
+            if queryBoxFocused {
+                VStack {
+                    Toggle("Popular", isOn: $popularOn)
+                    Toggle("Deals", isOn: $dealsOn)
+                    
+                    HStack {
+                        Text("Category")
+                        Spacer()
+                        Picker("Category", selection: $categorySelection) {
+                            Text("Restaurants")
+                                .tag("restaurants")
+                            Text("Arts")
+                                .tag("arts")
+                        }
                     }
                 }
+                .padding(.horizontal, 40)
             }
-            .padding(.horizontal, 40)
             
             // Show Picker
             Picker("", selection: $selectedTab) {
@@ -66,8 +71,15 @@ struct HomeView: View {
             // Show map or list
             if selectedTab == 1 {
                 MapView()
+                // onTap code doesn't work with Map Views
+                    .onTapGesture {
+                        queryBoxFocused = false
+                    }
             } else {
                 ListView()
+                    .onTapGesture {
+                        queryBoxFocused = false
+                    }
             }
         }
         .onAppear{
