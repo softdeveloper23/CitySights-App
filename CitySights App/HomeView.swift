@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HomeView: View {
     @Environment(BusinessModel.self) var model
@@ -69,7 +70,21 @@ struct HomeView: View {
             .padding(.horizontal)
             
             // Show map or list
-            if selectedTab == 1 {
+            if bindingModel.locationAuthStatus == .denied {
+                Spacer()
+                Text("Please allow location services for this app to function correctly.")
+                    .padding(.horizontal)
+                Button {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    Text("Open App Privacy Settings")
+                }
+                .buttonStyle(.bordered)
+
+                Spacer()
+            } else if selectedTab == 1 {
                 MapView()
                 // onTap code doesn't work with Map Views
                     .onTapGesture {
